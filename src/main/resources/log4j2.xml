@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="30">
+  <Appenders>
+     <RollingFile name="RollingFile" fileName="C:/prime/logs/prime.log"
+              filePattern="/$${date:dd-MM-yyyy}/olx-%d{MM-dd-yyyy}-%i.log.gz">
+      <PatternLayout pattern="%x %d{ISO8601}{IST} %F %L %m %ex%n"/>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+        <SizeBasedTriggeringPolicy size="5 MB"/>
+      </Policies>
+    </RollingFile>
+  <!--   <Console name="STDOUT" target="SYSTEM_OUT">
+       <PatternLayout pattern="%d{ISO8601}{GMT} %F %L %m %ex%n"/>
+    </Console> -->
+  </Appenders>
+   <Loggers>
+    <Root level="info">
+      <AppenderRef ref="RollingFile"/>
+     <!--  <AppenderRef ref="STDOUT"/> -->
+    </Root>
+  </Loggers>
+</Configuration>
