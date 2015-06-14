@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.UUID;
 
 import com.souq.exceptions.ResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.souq.dao.GenericDao;
 import com.souq.entity.ProductCategory;
 
+import javax.inject.Inject;
+
 @Service
 public class CategoryServicesImpl implements CategoryServices {
 
-	@Autowired
+	@Inject
 	GenericDao genericDao;
 
 	// Adding a Category

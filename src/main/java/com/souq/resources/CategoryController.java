@@ -2,9 +2,9 @@ package com.souq.resources;
 
 import com.souq.entity.ProductCategory;
 import com.souq.manager.CategoryServices;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -16,7 +16,7 @@ import javax.ws.rs.core.*;
 public class CategoryController {
 
 
-    @Autowired
+    @Inject
     CategoryServices categoryServicesImpl;
 
     @PostConstruct
