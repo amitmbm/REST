@@ -5,15 +5,15 @@ import java.util.List;
 import java.util.UUID;
 
 import com.souq.exceptions.ResourceNotFoundException;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.souq.dao.GenericDao;
 import com.souq.entity.ProductCategory;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
-@Service
+@Named
 public class CategoryServicesImpl implements CategoryServices {
 
 	@Inject
