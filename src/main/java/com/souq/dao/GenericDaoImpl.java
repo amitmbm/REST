@@ -6,11 +6,11 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
-@Repository
+@Named
 public class GenericDaoImpl implements GenericDao {
 
 	@Inject
