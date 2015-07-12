@@ -1,10 +1,15 @@
 package com.souq.resources;
 
+import com.souq.constants.RequestConstants;
 import com.souq.entity.ProductCategory;
 import com.souq.manager.CategoryServices;
+import com.souq.request.KentroRequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
@@ -15,6 +20,9 @@ import javax.ws.rs.core.*;
 @Path("/api/v1/manage/")
 public class CategoryController {
 
+    @Context private HttpServletRequest httpServletRequest;
+
+    private static Logger logger = LoggerFactory.getLogger(CategoryController.class);
 
     @Inject
     CategoryServices categoryServicesImpl;
@@ -37,6 +45,8 @@ public class CategoryController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createCategory(ProductCategory productCategory , @Context UriInfo uriInfo) {
         Response response = null;
+        KentroRequestContext kentroRequestContext = (KentroRequestContext)httpServletRequest.getAttribute(RequestConstants.KENTRO_REQUEST_CONTEXT);
+        logger.info("inside create item request with"+ kentroRequestContext);
         try {
             // categoryServices.validateCategory(ProductCategory);
 
@@ -46,8 +56,9 @@ public class CategoryController {
         }
         catch (Exception e) {
            e.printStackTrace();
+            logger.error("exception occured in createCategory",e);
         }
-
+        logger.info("Time taken by createCategory request::"+ (System.currentTimeMillis()-kentroRequestContext.getInTime()));
         return response;
     }
 

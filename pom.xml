@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.souq</groupId>
-    <artifactId>prime</artifactId>
+    <artifactId>rest</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
@@ -24,7 +24,25 @@
 
     <build>
         <finalName>${pom.artifactId}</finalName>
-
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                </configuration>
+            </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId>
+                    <version>2.2</version>
+                    <configuration>
+                        <url>http://localhost:9090/manager/text</url>
+                        <server>TomcatServer</server>
+                        <path>/rest</path>
+                    </configuration>
+                </plugin>
+        </plugins>
     </build>
 
 
@@ -97,9 +115,20 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <version>5.1.36</version>
         </dependency>
 
+        <!-- logging dependency -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.12</version>
+        </dependency>
         <!-- Form Validation using Annotations -->
         <!-- <dependency>
              <groupId>javax.validation</groupId>
@@ -117,6 +146,12 @@
              <artifactId>testng</artifactId>
              <version>6.3.1</version>
          </dependency>-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <repositories>

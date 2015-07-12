@@ -23,8 +23,9 @@ public class CategoryServicesImpl implements CategoryServices {
 	@Transactional
 	@Override
 	public ProductCategory addCategory(ProductCategory productCategory) throws Exception {
-			productCategory.setItemId(UUID.randomUUID().toString());
-			return genericDao.addEntity(productCategory);
+			/*productCategory.setItemId(UUID.randomUUID().toString());
+			return genericDao.addEntity(productCategory);*/
+        throw new Exception("hardcoded exception");
 		}
 
 	// updating a Category
