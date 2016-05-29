@@ -6,9 +6,9 @@ They should be able to build first webservice within 10 minutes.
 
 ### Prerequisities
 JDK :- 1.7
-mysql:- 5.6
-maven
-tomcat
+Mysql:- 5.6
+Maven
+Tomcat
 
 ### Installing
 1. clone the project.
