@@ -1,11 +1,11 @@
-drop DATABASE IF EXISTS `prime_db`;
-CREATE DATABASE IF NOT EXISTS `prime_db`;
-use `prime_db`;
+drop DATABASE IF EXISTS `rest`;
+CREATE DATABASE IF NOT EXISTS `rest`;
+use `rest`;
 
-CREATE table item (
-  item_id varchar(36) primary key not null,
-  item_name varchar(128) unique key not null,
-  item_desc varchar(512) not null,
+CREATE table product (
+  id varchar(36) primary key not null,
+  name varchar(128) unique key not null,
+  description varchar(512) not null,
   created_by varchar(128),
   updated_by varchar(128),
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,

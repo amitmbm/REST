@@ -13,15 +13,15 @@
 
     <!--  data-source in case of JDBC connection-pool -->
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/primejndi"/>
+        <property name="jndiName" value="java:comp/env/jdbc/restjndi"/>
     </bean>
 
-    <bean id="primeSessionFactory"
+    <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="annotatedClasses">
             <list>
-                <value>com.ami.entity.ProductCategory</value>
+                <value>com.ami.entity.Product</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -38,7 +38,7 @@
 
     <bean id="txManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="primeSessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
 </beans>

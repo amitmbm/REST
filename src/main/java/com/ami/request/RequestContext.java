@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class KentroRequestContext {
+public class RequestContext {
     private String requestId;
     private long inTime;
     private String serviceUrl;
@@ -14,7 +14,7 @@ public class KentroRequestContext {
     private final String queryString;
     private final String method;
 
-    public KentroRequestContext(HttpServletRequest request) {
+    public RequestContext(HttpServletRequest request) {
         this.requestId = UUID.randomUUID().toString();
         this.serviceUrl = request.getRequestURI();
         this.inTime = System.currentTimeMillis();
@@ -66,7 +66,7 @@ public class KentroRequestContext {
 
     @Override
     public String toString() {
-        return "KentroRequestContext{" +
+        return "RequestContext{" +
                 "requestId='" + requestId + '\'' +
                 ", inTime=" + inTime +
                 ", serviceUrl='" + serviceUrl + '\'' +

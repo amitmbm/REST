@@ -2,11 +2,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
-    <display-name>Prime</display-name>
-    <welcome-file-list>
+    <display-name>REST</display-name>
+    <!--TODO :- add a proper filter which wont affect the execution of index.jsp-->
+    <!--<welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
@@ -32,7 +33,7 @@
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 
-    <!-- here we are using the jersey and springs servlet , hence on top we have to define where is our application context and contextloader is defined -->
+    <!-- here we are using the jersey and springs servlet , hence on top we have to define where is our application context and context loader is defined -->
     <servlet>
         <servlet-name>jersey-servlet</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>

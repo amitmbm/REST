@@ -10,8 +10,8 @@ import java.util.Date;
  */
 
 @Entity
-@Table(name = "item")
-public class ProductCategory implements java.io.Serializable {
+@Table(name = "product")
+public class Product implements java.io.Serializable {
 
     private static final long serialVersionUID = -2107661175822965352L;
     private String itemId;
@@ -22,12 +22,12 @@ public class ProductCategory implements java.io.Serializable {
     private Date createdAt;
     private Date updatedAt;
 
-    public ProductCategory() {
+    public Product() {
     }
 
 
     @Id
-    @Column(name = "item_id", unique = true, nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     public String getItemId() {
         return this.itemId;
     }
@@ -36,8 +36,8 @@ public class ProductCategory implements java.io.Serializable {
         this.itemId = catGuid;
     }
 
-    @Column(name = "item_name", unique = true, nullable = false)
-    @XmlAttribute(name="item_name")
+    @Column(name = "name", unique = true, nullable = false)
+    @XmlAttribute(name="name")
     public String getItemName() {
         return this.itemName;
     }
@@ -46,8 +46,8 @@ public class ProductCategory implements java.io.Serializable {
         this.itemName = catName;
     }
 
-    @Column(name = "item_desc", nullable = false)
-    @XmlAttribute(name="item_desc")
+    @Column(name = "description", nullable = false)
+    @XmlAttribute(name="description")
     public String getItemDesc() {
         return this.itemDesc;
     }

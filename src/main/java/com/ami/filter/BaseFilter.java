@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 
 import com.ami.constants.RequestConstants;
-import com.ami.request.KentroRequestContext;
+import com.ami.request.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -20,7 +20,7 @@ public class BaseFilter implements ContainerRequestFilter, ContainerResponseFilt
     @Override
     public void filter(ContainerRequestContext containerRequestContext) throws IOException {
         logger.info("inside the ContainerRequestContext filter");
-        MDC.remove(RequestConstants.KENTRO_REQUEST_ID);
+        MDC.remove(RequestConstants.REQUEST_ID);
         MDC.clear();
     }
 
@@ -32,15 +32,15 @@ public class BaseFilter implements ContainerRequestFilter, ContainerResponseFilt
 
         logger.info("printing the kentrorequestcontext"+kentroRequestContext);
 
-        MDC.put(RequestConstants.KENTRO_REQUEST_ID, kentroRequestContext.getRequestId());
+        MDC.put(RequestConstants.REQUEST_ID, kentroRequestContext.getRequestId());
 
-        httpServletRequest.setAttribute(RequestConstants.KENTRO_REQUEST_CONTEXT, kentroRequestContext);
+        httpServletRequest.setAttribute(RequestConstants.REQUEST_CONTEXT, kentroRequestContext);
     }
 }*/
 
 public class BaseFilter implements Filter{
     private static Logger logger = LoggerFactory.getLogger(BaseFilter.class);
-    private KentroRequestContext kentroRequestContext;
+    private RequestContext requestContext;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -49,16 +49,16 @@ public class BaseFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        kentroRequestContext = new KentroRequestContext(httpServletRequest);
-        MDC.put(RequestConstants.KENTRO_REQUEST_ID, kentroRequestContext.getRequestId());
+        requestContext = new RequestContext(httpServletRequest);
+        MDC.put(RequestConstants.REQUEST_ID, requestContext.getRequestId());
 
         logger.info("Enter inside filter");
 
-        httpServletRequest.setAttribute(RequestConstants.KENTRO_REQUEST_CONTEXT, kentroRequestContext);
+        httpServletRequest.setAttribute(RequestConstants.REQUEST_CONTEXT, requestContext);
 
         filterChain.doFilter(servletRequest, servletResponse);
         //Clear context
-        MDC.remove(RequestConstants.KENTRO_REQUEST_ID);
+        MDC.remove(RequestConstants.REQUEST_ID);
         MDC.clear();
         logger.info("cleared requestid in filter");
     }
