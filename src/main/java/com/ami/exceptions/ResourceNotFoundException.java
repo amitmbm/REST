@@ -1,4 +1,4 @@
-package com.souq.exceptions;
+package com.ami.exceptions;
 
 public class ResourceNotFoundException extends Exception{
 	/**

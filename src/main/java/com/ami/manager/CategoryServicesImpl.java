@@ -1,14 +1,13 @@
-package com.souq.manager;
+package com.ami.manager;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import com.souq.exceptions.ResourceNotFoundException;
+import com.ami.exceptions.ResourceNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.souq.dao.GenericDao;
-import com.souq.entity.ProductCategory;
+import com.ami.dao.GenericDao;
+import com.ami.entity.ProductCategory;
 
 import javax.inject.Inject;
 import javax.inject.Named;

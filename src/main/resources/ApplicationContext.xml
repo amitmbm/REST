@@ -9,7 +9,7 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--	<context:annotation-config />-->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>
-    <context:component-scan base-package="com.souq"></context:component-scan>
+    <context:component-scan base-package="com.ami"></context:component-scan>
 
     <!--  data-source in case of JDBC connection-pool -->
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
@@ -21,7 +21,7 @@
         <property name="dataSource" ref="dataSource"></property>
         <property name="annotatedClasses">
             <list>
-                <value>com.souq.entity.ProductCategory</value>
+                <value>com.ami.entity.ProductCategory</value>
             </list>
         </property>
         <property name="hibernateProperties">

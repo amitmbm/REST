@@ -1,4 +1,4 @@
-package com.souq.dao;
+package com.ami.dao;
 
 import java.util.List;
 

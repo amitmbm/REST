@@ -1,4 +1,4 @@
-package com.souq.entity;
+package com.ami.entity;
 
 
 import javax.persistence.*;

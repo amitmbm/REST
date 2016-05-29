@@ -1,18 +1,12 @@
-package com.souq.filter;
+package com.ami.filter;
 
 import java.io.IOException;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.container.ContainerRequestContext;
-import javax.ws.rs.container.ContainerRequestFilter;
-import javax.ws.rs.container.ContainerResponseContext;
-import javax.ws.rs.container.ContainerResponseFilter;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.ext.Provider;
 
-import com.souq.constants.RequestConstants;
-import com.souq.request.KentroRequestContext;
+import com.ami.constants.RequestConstants;
+import com.ami.request.KentroRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;

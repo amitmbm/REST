@@ -1,4 +1,4 @@
-package com.souq.constants;
+package com.ami.constants;
 
 /**
  * Created by ami on 7/12/2015.

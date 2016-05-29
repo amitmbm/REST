@@ -1,6 +1,5 @@
-package com.souq.dao;
+package com.ami.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Query;

@@ -40,8 +40,8 @@
           removeAbandoned="true"
           logAbandoned="true"
           minEvictableIdleTimeMillis="30000"
-          username="dbclient"
-          password="dbclient"
+          username="root"
+          password="root"
           driverClassName="com.mysql.jdbc.Driver"
           url="jdbc:mysql://localhost:3306/prime_db"/>
 

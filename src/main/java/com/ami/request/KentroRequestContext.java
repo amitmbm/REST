@@ -1,8 +1,6 @@
-package com.souq.request;
+package com.ami.request;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.Part;
-import java.util.Collection;
 import java.util.Map;
 import java.util.UUID;
 

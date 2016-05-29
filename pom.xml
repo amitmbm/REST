@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.souq</groupId>
+    <groupId>com.ami</groupId>
     <artifactId>rest</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>Prime</name>
+    <name>REST services</name>
 
     <url>http://maven.apache.org</url>
 
@@ -32,7 +32,7 @@
                     <target>${jdk.version}</target>
                 </configuration>
             </plugin>
-                <plugin>
+                <!--<plugin>
                     <groupId>org.apache.tomcat.maven</groupId>
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>2.2</version>
@@ -41,7 +41,7 @@
                         <server>TomcatServer</server>
                         <path>/rest</path>
                     </configuration>
-                </plugin>
+                </plugin>-->
         </plugins>
     </build>
 

@@ -1,8 +1,8 @@
-package com.souq.manager;
+package com.ami.manager;
 
 import java.util.List;
 
-import com.souq.entity.ProductCategory;
+import com.ami.entity.ProductCategory;
 
 public interface CategoryServices {
 	

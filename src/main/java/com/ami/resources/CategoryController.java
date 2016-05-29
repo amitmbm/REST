@@ -1,9 +1,9 @@
-package com.souq.resources;
+package com.ami.resources;
 
-import com.souq.constants.RequestConstants;
-import com.souq.entity.ProductCategory;
-import com.souq.manager.CategoryServices;
-import com.souq.request.KentroRequestContext;
+import com.ami.constants.RequestConstants;
+import com.ami.entity.ProductCategory;
+import com.ami.manager.CategoryServices;
+import com.ami.request.KentroRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
