@@ -33,4 +33,4 @@ you can check this by firing the sql query on mysql terminal.<br>
 URL :- localhost:8080/rest/api/products/{id}<br>
 provide the id , which you get as a response from create product api , in the url , you will get its all the information.
 
-## Automated test cases will be added later.
+## Automated test cases will be added later
