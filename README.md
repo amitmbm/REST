@@ -1,18 +1,21 @@
 ## REST API for CRUD operation,using the jersey,spring,hibernate,MySQL and maven.
 
-Motivation for this project is to provide the head start to beginners for building the REST api,using the popular java open source frameworks and necessary configs.They should be able to build first webservice within 10 minutes.
+Motivation for this project is to provide the head start to beginners to build **REST API's**,using the popular java open source frameworks and necessary configs.They should be able to build and test first webservice within 10 minutes.
 
 
 ### Prerequisities
 JDK :- 1.7  
 Mysql:- 5.6  
-Maven  
-Tomcat  
+Maven:-3.0 or later
+Tomcat:- 1.7 or later
 
 ### Installing
 1.Clone the project.<br>
 2.If maven is setup properly in your system. then you can download all the required dependency and build war using the maven by using below command.<br>
- **mvn clean package**<br>
+```
+mvn clean package
+```
+
 3.Open db.sql and run the sql commands in your mysql terminal.<br>
 4.Change the username and password to your mysql username in context.xml.<br>
 5.Go to the target folder and copy the rest.war file and put it in tomcat webapps folder and start the server.<br>

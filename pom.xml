@@ -18,15 +18,17 @@
         <spring.version>4.1.6.RELEASE</spring.version>
         <hibernate.version>4.3.10.Final</hibernate.version>
         <!--<log4j.version>2.0.1</log4j.version>-->
-        <jdk.version>1.7</jdk.version>
+        <jdk.version>1.8</jdk.version>
         <jersey.version>2.18</jersey.version>
     </properties>
 
     <build>
-        <finalName>${pom.artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.0</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
