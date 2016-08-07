@@ -16,7 +16,7 @@ public class HeathCheckController {
     @GET
     public Response getHeathCheck() {
         System.out.println("inside health check controller");
-        return Response.status(200).entity("server is fine , updated for trigger").build();
+        return Response.status(200).entity("server is fine , updated for trigger using the polling").build();
     }
 
 }
