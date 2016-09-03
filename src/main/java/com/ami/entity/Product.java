@@ -25,6 +25,11 @@ public class Product implements java.io.Serializable {
     public Product() {
     }
 
+    public Product(String itemId, String itemName, String itemDesc) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemDesc = itemDesc;
+    }
 
     @Id
     @Column(name = "id", unique = true, nullable = false)

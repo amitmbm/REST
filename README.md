@@ -1,15 +1,15 @@
-## REST API for CRUD operation,using the jersey,spring,hibernate,MySQL and maven.
+#Overview
 
-Motivation for this project is to provide the head start to beginners to build **REST API's**,using the popular java open source frameworks and necessary configs.They should be able to build and test first webservice within 10 minutes.
+Motivation for this project is to provide the head start to beginners to build **REST API's**,using the popular java open source frameworks(**jersey,spring,hibernate,MySQL and maven**) and necessary configs.They should be able to build and test first webservice within 10 minutes.
 
-
-### Prerequisities
+#Getting started
+## Prerequisities
 JDK :- 1.7  
 Mysql:- 5.6  
 Maven:-3.0 or later
 Tomcat:- 1.7 or later
 
-### Installing
+## Installation
 1.Clone the project.<br>
 2.If maven is setup properly in your system. then you can download all the required dependency and build war using the maven by using below command.<br>
 ```
@@ -36,4 +36,7 @@ you can check this by firing the sql query on mysql terminal.<br>
 URL :- localhost:8080/rest/api/products/{id}<br>
 provide the id , which you get as a response from create product api , in the url , you will get its all the information.
 
-## Automated test cases will be added later using the powermock and mockito.
+## Running the test cases. (from the base project folder )
+```
+mvn test
+```
