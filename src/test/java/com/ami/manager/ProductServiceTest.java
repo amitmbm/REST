@@ -3,7 +3,7 @@ package com.ami.manager;
 import com.ami.dao.GenericDaoImpl;
 import com.ami.entity.Product;
 import com.ami.exceptions.ResourceNotFoundException;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -11,6 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -19,7 +20,9 @@ import static org.mockito.Mockito.*;
 /**
  * Created by amit.khandelwal on 24/08/16.
  *
- * <p>This is a test written using the mockito style</p>
+ * <p>This is a test written using the mockito style and uses given-when-then style </p>
+ * These tests cover 97% code of productService.java
+ * 
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {
@@ -35,39 +38,73 @@ public class ProductServiceTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
     }*/
-    private Product mockedProduct = new Product("1", "Item 1", "This is item 1");
-    String query = "from Product where itemId = ?";
+
+    private static Product mockedProduct;
+    private static Product updatedMockedProduct;
+    private static String query;
+    private static String getAllProductsQuery;
+    private static List<Object> list;
+    private static List products = new ArrayList<>();
+
+    @Before
+    public void setup() throws Exception {
+        mockedProduct = new Product("1", "Item 1", "This is item 1");
+        query = "from Product where itemId = ?";
+        list = new ArrayList<>();
+        list.add("1");
+        getAllProductsQuery = "from Product";
+        // given
+        when(genericDao.getEntity(query, list)).thenReturn(mockedProduct);
+        when(genericDao.addEntity(mockedProduct)).thenReturn(mockedProduct);
+        when(genericDao.updateEntity(mockedProduct)).thenReturn(mockedProduct);
+        when(genericDao.deleteEntity(mockedProduct)).thenReturn(true);
+
+    }
 
 
     @Test
-    public void getItemNameUpperCase() {
-        // Given
-        Product mockedProduct = new Product("1", "Item 1", "This is item 1");
-        String query = "from Product where itemId = ?";
-        List<Object> list = new ArrayList<Object>();
-        list.add("1");
-        try{
-            when(genericDao.getEntity(query,list)).thenReturn(mockedProduct);
-        }catch (Exception e){
-         fail();
-        }
+    public void testGetProduct() throws Exception {
 
-        // When
-        Product product = null;
-        try {
-            product = productServices.getProduct("1");
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail();
-        }
+        //when
+        Product product = productServices.getProduct("1");
 
-        //then
-        try {
-            verify(genericDao, times(1)).getEntity(query,list);
-        } catch (Exception e) {
-            e.printStackTrace();
-            fail();
-        }
-        assertEquals("Item 1",product.getItemName());
+        // then or verify
+        Assert.assertNotNull(product);
+        Assert.assertEquals(product.getItemId(), mockedProduct.getItemId());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void testRNFException() throws Exception {
+        productServices.getProduct("2");
+    }
+
+    @Test
+    public void testAddProduct() throws Exception {
+        Product product = productServices.add(mockedProduct);
+        Assert.assertEquals("Item 1",product.getItemName());
+    }
+
+    @Test
+    public void testUpdateProduct() throws Exception{
+        updatedMockedProduct = new Product();
+        updatedMockedProduct.setItemId("1");
+        updatedMockedProduct.setItemName("name updated");
+        // given
+        updatedMockedProduct = productServices.update(updatedMockedProduct,"1");
+        Assert.assertEquals("name updated",updatedMockedProduct.getItemName());
+    }
+
+    @Test
+    public void testDelete() throws Exception{
+        productServices.delete("1");
+    }
+
+    @Test
+    public void testGetProducts() throws Exception{
+        products.add(new Product());
+        products.add(new Product());
+        when(genericDao.getEntities(getAllProductsQuery,null)).thenReturn(products);
+        products=productServices.getProducts();
+        Assert.assertEquals(2,products.size());
     }
 }

@@ -4,6 +4,7 @@ import com.ami.entity.Product;
 import com.ami.exceptions.ResourceNotFoundException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -15,9 +16,13 @@ import static org.mockito.Mockito.when;
 /**
  * @author: Amit Khandelwal
  * Date: 03/09/16
- * This Unit tests has more coverage.
+ * This Unit tests has very less coverage and explaination of why can be found at
+ * href :- http://stackoverflow.com/questions/3690033/mockito-passes-but-code-coverage-still-low comments section of
+ * jon skeet.
+ *
  */
 
+@Ignore
 public class ProductSvcTest {
     private static ProductServices mockedProductServices;
     private static Product product1;
@@ -27,19 +32,22 @@ public class ProductSvcTest {
     public static void setUp() throws Exception {
         mockedProductServices = mock(ProductServices.class);
         product1 = new Product("1","first","first-desc");
-        product2 = new Product("2","second","second-desc");
+        product2 = new Product();
+        product2.setItemId("2");
+        product2.setItemName("second");
+        product2.setItemDesc("second-desc");
         when(mockedProductServices.getProducts()).thenReturn(Arrays.asList(product1,product2));
         when(mockedProductServices.getProduct("1")).thenReturn(product1);
-        when(mockedProductServices.add(product1)).thenReturn(product1);
+        when(mockedProductServices.add(product2)).thenReturn(product2);
         when(mockedProductServices.delete("1")).thenReturn(true);
         when(mockedProductServices.getProduct("2")).thenThrow(new ResourceNotFoundException());
     }
 
     @Test
     public void addProductTest() throws Exception {
-        Product product = mockedProductServices.add(product1);
+        Product product = mockedProductServices.add(product2);
         Assert.assertNotNull(product);
-        Assert.assertEquals("Object creation is failed",product1,product);
+        Assert.assertEquals("Object creation is failed",product2,product);
     }
 
     @Test
