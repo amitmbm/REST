@@ -22,7 +22,7 @@ import static org.mockito.Mockito.*;
  *
  * <p>This is a test written using the mockito style and uses given-when-then style </p>
  * These tests cover 97% code of productService.java
- * 
+ *
  */
 @RunWith(MockitoJUnitRunner.class)
 public class ProductServiceTest {

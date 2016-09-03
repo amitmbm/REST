@@ -97,6 +97,13 @@ public class GenericDaoImpl implements GenericDao {
 		return entities;
 	}
 
+    /**
+	 * delete a entity
+	 * @param delete
+	 * @param <T>
+	 * @return boolean
+	 * @throws Exception
+     */
 	@Override
 	public <T> boolean deleteEntity(T delete) throws Exception {
 		try{

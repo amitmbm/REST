@@ -16,9 +16,9 @@ import static org.mockito.Mockito.when;
 /**
  * @author: Amit Khandelwal
  * Date: 03/09/16
- * This Unit tests has very less coverage and explaination of why can be found at
+ * This Unit tests has very less coverage and explanation of why can be found at
  * href :- http://stackoverflow.com/questions/3690033/mockito-passes-but-code-coverage-still-low comments section of
- * jon skeet.
+ * jon skeet (thodu stackoverflow moderator).
  *
  */
 
