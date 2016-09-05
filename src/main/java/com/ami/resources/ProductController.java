@@ -37,7 +37,7 @@ public class ProductController {
     public Response addProduct(Product product, @Context UriInfo uriInfo) {
         Response response = null;
         RequestContext requestContext = (RequestContext) httpServletRequest.getAttribute(RequestConstants.REQUEST_CONTEXT);
-        logger.info("inside create item request with" + requestContext);
+        logger.info("inside create product with payload " + requestContext);
         try {
             response = Response.status(Response.Status.CREATED)
                     .entity(productServicesImpl
@@ -81,33 +81,4 @@ public class ProductController {
         return response;
     }
 
-    /*// Get List of All the products
-    @GET
-    @Path("categories")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public Response getCategories() {
-        List<ProductCategory> categoryList = null;
-        Response response = null;
-        try {
-            categoryList = categoryServicesImpl.getProducts();
-            // list of category DTO
-            List<ProductCategory> listProductCategory = new ArrayList<ProductCategory>();
-            for(int i=0;i<categoryList.size();i++)
-            {
-                ProductCategory ProductCategory = new ProductCategory(categoryList.get(i));
-                listProductCategory.add(ProductCategory);
-
-            }
-            GenericEntity<List<ProductCategory>> genericEntity = new GenericEntity<List<ProductCategory>>(
-                    listProductCategory) {
-            };
-            response = Response.status(Response.Status.OK).entity(genericEntity)
-                    .build();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return response;
-    }
-*/
 }
