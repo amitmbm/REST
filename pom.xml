@@ -131,7 +131,7 @@
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.12</version>
         </dependency>
-        <!-- Form Validation using Annotations -->
+        <!-- Form Validation using Annotations using the JSR compliant lib-->
         <!-- <dependency>
              <groupId>javax.validation</groupId>
              <artifactId>validation-api</artifactId>
