@@ -37,4 +37,4 @@ URL :- localhost:8080/rest/api/products/{id}<br>
 provide the id , which you get as a response from create product api , in the url , you will get its all the information.
 
 ## Automated test cases will be added later using the powermock and mockito.
-Unit test-cases can be execusted using the Unit-tests branch.
+Unit test-cases are in feature branch and  it can be execusted using mvn test command.
