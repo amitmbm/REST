@@ -6,7 +6,7 @@
 
     <groupId>com.ami</groupId>
     <artifactId>rest</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>war</packaging>
 
     <name>REST services</name>
