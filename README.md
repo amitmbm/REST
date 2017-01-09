@@ -16,7 +16,11 @@ Tomcat:- 1.7 or later
 mvn clean package
 ```
 
-3.Open db.sql and run the sql commands in your mysql terminal.<br>
+3.Create DB by running below command.<br>
+```
+mysql -h hostname -u user database < path/to/test.sql
+```
+
 4.Change the username and password to your mysql username in context.xml.<br>
 5.Go to the target folder and copy the rest.war file and put it in tomcat webapps folder and start the server.<br>
 
