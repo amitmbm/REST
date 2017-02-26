@@ -1,30 +1,32 @@
 package com.ami.dao;
 
-import java.util.List;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 @Named
 public class GenericDaoImpl implements GenericDao {
 
 	@Inject
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
-	Session session = null;
+	private Session session;
 
 
 	@Override
 	public <T> T addEntity(T entity) throws Exception {
-		try{
+		try {
 			session = sessionFactory.getCurrentSession();
 			session.save(entity);
 			return entity;
-		}catch(Exception e){
+		} catch (HibernateException e){
 			e.printStackTrace();
 		}
 		return null;
@@ -39,17 +41,17 @@ public class GenericDaoImpl implements GenericDao {
 	@Override
 	public <T> T getEntity(String query, List<Object> values) throws Exception {
 		T entity = null;
-		try{
+		try {
 			session = sessionFactory.getCurrentSession();
 			Query sqlQuery = session.createQuery(query);
 
 			if (values != null && values.size() > 0){
-				for (int i = 0; i < values.size() ; i++){
+				for (int i = 0; i < values.size(); i++) {
 					sqlQuery.setParameter(i, values.get(i));
 				}
 			}
-			entity = (T)sqlQuery.uniqueResult();
-		}catch(Exception e){
+			entity = (T) sqlQuery.uniqueResult();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return entity;
@@ -61,33 +63,33 @@ public class GenericDaoImpl implements GenericDao {
 	public <T> List<T> getEntities(String query, List<Object> values)
 			throws Exception {
 		List<T> entities = null;
-		try{
+		try {
 			session = sessionFactory.getCurrentSession();
 			Query sqlQuery = session.createQuery(query);
 
 			if (values != null && values.size() > 0){
-				for (int i = 0; i < values.size() ; i++){
+				for (int i = 0; i < values.size(); i++){
 					sqlQuery.setParameter(i, values.get(i));
 				}
 			}
 			entities = sqlQuery.list();
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
-			//tx.rollback();	
 		}
 		return entities;
 	}
 
-    /**
-	 * delete a entity
-	 * @param delete
-	 * @param <T>
+
+	/**
+	 * delete an entity.
+ 	 * @param delete T
+	 * @param <T> T
 	 * @return boolean
-	 * @throws Exception
-     */
+	 * @throws Exception exception.
+	 */
 	@Override
 	public <T> boolean deleteEntity(T delete) throws Exception {
-		try{
+		try {
 			session = sessionFactory.getCurrentSession();
 			session.delete(delete);
 			return true;
@@ -101,11 +103,11 @@ public class GenericDaoImpl implements GenericDao {
 	@Override
 	public <T> T updateEntity(T entity) throws Exception {
 
-		try{
+		try {
 			session = sessionFactory.getCurrentSession();
 			session.update(entity);
 			return entity;
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;

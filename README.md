@@ -36,7 +36,13 @@ you can check this by firing the sql query on mysql terminal.<br>
 URL :- localhost:8080/rest/api/products/{id}<br>
 provide the id , which you get as a response from create product api , in the url , you will get its all the information.
 
-## Running the test cases. (from the base project folder )
+## Testing.
+For unit tests, i have used Junit and mockito framework and for code coverage JaCoCO.  
+Useful links :- [http://www.icidigital.com/blog/code-coverage-with-jacoco/](JaCoCo)   
+[http://www.javaworld.com/article/2074515/core-java/unit-test-code-coverage-with-maven-and-jacoco.html](maven+JaCoCO)  
+to run the unit tests, run below maven command
 ```
 mvn test
 ```
+
+Results of units tests can be found in directory `target/site/jacoco` where you can open the html file and see the code coverage output.

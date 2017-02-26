@@ -2,25 +2,37 @@ package com.ami.filter;
 
 import java.io.IOException;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
-import com.ami.constants.RequestConstants;
-import com.ami.request.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
-public class BaseFilter implements Filter{
+import com.ami.constants.RequestConstants;
+import com.ami.request.RequestContext;
+
+/**
+ * All the http request will pass through this filter.
+ * It will log the time taken by http call.
+ */
+public class BaseFilter implements Filter {
     private static Logger logger = LoggerFactory.getLogger(BaseFilter.class);
     private RequestContext requestContext;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+            FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         requestContext = new RequestContext(httpServletRequest);
         MDC.put(RequestConstants.REQUEST_ID, requestContext.getRequestId());
