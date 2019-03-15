@@ -6,7 +6,7 @@ Motivation for this project is to provide the head start to beginners to build *
 ### Prerequisities
 JDK :- 1.7  
 Mysql:- 5.6  
-Maven:-3.0 or later
+Maven:-3.0 or later  
 Tomcat:- 1.7 or later
 
 ### Installing
