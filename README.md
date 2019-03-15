@@ -19,7 +19,6 @@ mvn clean package
 3.Create DB by running below command. In my repository dbconfig folder is present, inside that create_db.sql file is present
 Give the absolute path of this file in below command.
 
-<br>
 ```
 mysql -h hostname -u user database < path/to/create_db.sql
 
