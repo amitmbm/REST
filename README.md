@@ -22,7 +22,8 @@ Give the absolute path of this file in below command.
 <br>
 ```
 mysql -h hostname -u user database < path/to/create_db.sql
-``
+
+```
 
 
 4.Change the username and password to your mysql username in **context.xml** and **hibernate.cfg.xml** .<br>
