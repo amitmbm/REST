@@ -25,7 +25,7 @@ mysql -h hostname -u user database < path/to/create_db.sql
 ```
 
 
-4.Change the username and password to your mysql username in **context.xml** and **hibernate.cfg.xml** .<br>
+4.Change the username and password of your mysql username in **context.xml** and **hibernate.cfg.xml** .<br>
 
 
 5.Go to the target folder and copy the rest.war file and put it in tomcat webapps folder and start the server.<br>
