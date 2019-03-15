@@ -18,12 +18,16 @@ mvn clean package
 
 3.Create DB by running below command. In my repository dbconfig folder is present, inside that create_db.sql file is present
 Give the absolute path of this file in below command.
+
 <br>
 ```
 mysql -h hostname -u user database < path/to/create_db.sql
 ``
 
+
 4.Change the username and password to your mysql username in **context.xml** and **hibernate.cfg.xml** .<br>
+
+
 5.Go to the target folder and copy the rest.war file and put it in tomcat webapps folder and start the server.<br>
 
 ### API Documentation.
