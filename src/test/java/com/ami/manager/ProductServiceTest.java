@@ -1,27 +1,28 @@
 package com.ami.manager;
 
-import com.ami.dao.GenericDaoImpl;
-import com.ami.entity.Product;
-import com.ami.exceptions.ResourceNotFoundException;
-import org.junit.*;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.*;
+import com.ami.dao.GenericDaoImpl;
+import com.ami.entity.Product;
+import com.ami.exceptions.ResourceNotFoundException;
 
 /**
  * Created by amit.khandelwal on 24/08/16.
  *
  * <p>This is a test written using the mockito style and uses given-when-then style </p>
- * These tests cover 97% code of productService.java
+ * These tests cover 97% code of productService.java and it is again inspired by the
+ * SO post http://stackoverflow.com/questions/3690033/mockito-passes-but-code-coverage-still-low .
  *
  */
 @RunWith(MockitoJUnitRunner.class)

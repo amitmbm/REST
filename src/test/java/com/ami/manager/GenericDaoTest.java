@@ -1,8 +1,12 @@
 package com.ami.manager;
 
-import com.ami.dao.GenericDao;
-import com.ami.dao.GenericDaoImpl;
-import com.ami.entity.Product;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,12 +18,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import com.ami.dao.GenericDaoImpl;
+import com.ami.entity.Product;
 
 /**
  * @author: Amit Khandelwal
